@@ -24,6 +24,9 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 	depth_first = binary_tree_depth(first);
 	depth_second = binary_tree_depth(second);
 
+	if (depth_first == depth_second && first->parent != second->parent)
+		return (first->parent->parent);
+
 	return (depth_first < depth_second ? first->parent : second->parent);
 }
 
